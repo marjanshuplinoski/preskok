@@ -12,46 +12,86 @@
 //generate folder with files
 //generateFolderWithFiles();
 
-
-if (is_ajax()) {
-    if (isset($_POST["action"]) && !empty($_POST["action"])) { //Checks if action value exists
-        $action = $_POST["action"];
-        switch ($action) { //Switch case for value of action
-            case "getFolderAndFiles":
-                getFolderAndFiles();
-                break;
-        }
-    }
-}
-//Function to check if the request is an AJAX request
-function is_ajax()
-{
-    return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
-}
-
-
 /**
  * get all Folders and Files
  */
-function getFolderAndFiles()
+function getFolderAndFilesPreview($Folders = null, $uploaded = null)
+{
+    if (!isset($Folders)) {
+        $dirs = getFolderAsVar();
+
+        echo '<div class="tree well">';
+        foreach ($dirs as $key => $folder) {
+            echo '<ul><li>';
+            $scannedFolder = array_values(array_diff(scandir($folder), array("..", ".")));
+            echo '<span><i class="icon-folder-open"></i>Local Folder: </span> <a href="">' . $folder . "</a>";
+
+            foreach ($scannedFolder as $files) {
+                echo '<ul><li><span><i class="icon-leaf"></i>File: </span><a href="">' . $files . "</a>";
+                echo '</li></ul>';
+            }
+            echo '</li></ul>';
+        }
+        echo '</div>';
+    } else if (isset($Folders) && !isset($uploaded)) {
+        echo '<button id="uploadToS3Cloud">Click to Upload to S3 Cloud</button>';
+        echo '<div class="tree well">';
+        echo '<li class="parent_li"><span title="Collapse this branch"><i class="icon-folder-open icon-minus-sign"></i>Not Found in the S3 Cloud:</span> <a href=""></a></li>';
+        foreach ($Folders as $key => $folder) {
+            echo '<ul><li>';
+            echo '<span><i class="icon-folder-open"></i>Local Folder: </span> <a href="">' . $key . "</a>";
+            foreach ($folder[0] as $files) {
+                if ($files != null) {
+                    echo '<ul><li><span><i class="icon-leaf"></i>File: </span><a href="">' . $files . "</a>";
+                    echo '</li></ul>';
+                }
+            }
+            echo '</li></ul>';
+        }
+        echo '</div>';
+    } else if (isset($Folders) && isset($uploaded)) {
+        echo '<button id="downloadFromS3Cloud">Click to Download from S3 Cloud</button>';
+        echo '<div class="tree well">';
+        echo '<li class="parent_li"><span title="Collapse this branch"><i class="icon-folder-open icon-minus-sign"></i>Not Found in the local folders:</span> <a href=""></a></li>';
+        foreach ($Folders as $key => $folder) {
+            echo '<ul><li>';
+            echo '<span><i class="icon-folder-open"></i>Local Folder: </span> <a href="">' . $key . "</a>";
+            foreach ($folder[0] as $files) {
+                if ($files != null) {
+                    echo '<ul><li><span><i class="icon-leaf"></i>File: </span><a href="">' . $files . "</a>";
+                    echo '</li></ul>';
+                }
+            }
+            echo '</li></ul>';
+        }
+        echo '</div>';
+    }
+}
+
+function getFolderAsVar()
 {
     foreach ((glob("*")) as $key => $folder) {
-        if (is_dir($folder) == true && $folder != "aws-sdk-php" && $folder != "js") {
-            $dirs1[$key] = $folder;
+        if (is_dir($folder) == true && preg_match('(aws-sdk-php|js|css|tmpUploadToS3Cloud|applied|SQLFiles)', $folder) === 0) {
+            $dirs[$key] = $folder;
         }
     }
+    $dirs = array_values($dirs);
+    return $dirs;
 
-    $dirs = array_values($dirs1);
-    foreach ($dirs as $key => $folder) {
-        $scanned_folder = array_values(array_diff(scandir($folder), array("..", ".")));
-        echo "Folder : " . $folder . "<br>";
-        echo "contains the following files" . "<br>";
-        foreach ($scanned_folder as $files) {
-            echo "&ensp;&ensp;&ensp;file: " . $files . "<br>";
+}
+
+function getFolderAndFilesAsVar()
+{
+    $folders = getFolderAsVar();
+    $localFolders = array();
+    foreach ($folders as $folder) {
+        $localFolders[$folder] = array();
+        $scannedFolder = array_values(array_diff(scandir($folder), array("..", ".")));
+        foreach ($scannedFolder as $files) {
+            array_push($localFolders[$folder], $files);
         }
-        echo "<br>";
-
     }
+    return $localFolders;
 }
 
 ?>

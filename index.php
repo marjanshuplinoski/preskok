@@ -8,44 +8,72 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/css.css">
 
     <title>Marjan Shuplinoski - Preskok</title>
 </head>
 <body>
-<h1>Here are options you can perform for each task: </h1>
-<hr>
-<div class="container">
-    <h2>Dynamic Tabs</h2>
-    <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1" id="getFolderAndFiles">Get Folder and
-                Files</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3">Menu 3</a></li>
-    </ul>
 
-    <div class="tab-content">
+
+<hr>
+<nav class="navbar fixed-top navbar-light bg-light">
+
+    <h2>Preskok Tasks Basic</h2>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Home1</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1" id="getFolderAndFiles">1.a) Get Folder and Files</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2" id="checkUploadedToS3">1.b) Check If Uploaded onto S3</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3" id="checkDownloadedFromS3">1.c) Check If Downloaded from S3</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu20" id="SQLFiles">2) Get all SQL files and apply to db</a></li>
+
+    </ul>
+</nav>
+
+<nav class="navbar fixed-top navbar-light bg-light my-5">
+
+    <h2>Preskok Tasks Practical</h2>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home1">Home2</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu_p_1" id="parserData">1) Parser for provided data, assoc array</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu_p_2" id="createTable">2) Create Table from data</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3" id="checkDownloadedFromS3">1.c) Check If Downloaded from S3</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu20" id="SQLFiles">2) Get all SQL files and apply to db</a></li>
+
+    </ul>
+</nav>
+<div class="form-group">
+    &nbsp;
+</div>
+<div class="form-group">
+    &nbsp;
+</div>
+    <div class="tab-content mx-5 my-5">
         <div id="home" class="tab-pane fade active show">
             <h3>HOME</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua.</p>
         </div>
         <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
             <div id="getFolderAndFilesResult" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
         </div>
         <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem aperiam.</p>
+            <div id="checkUploadedToS3Result" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
         </div>
         <div id="menu3" class="tab-pane fade">
-            <h3>Menu 3</h3>
-            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <div id="checkDownloadedFromS3Result" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
+        </div>
+        <div id="menu20" class="tab-pane fade">
+            <div id="SQLFilesResult" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
+        </div>
+        <div id="menu_p_1" class="tab-pane fade">
+            <div id="parserDataResult" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
+        </div>
+        <div id="menu_p_2" class="tab-pane fade">
+            <div id="createTableResult" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
         </div>
     </div>
-</div>
+
+
 
 
 <!-- Optional JavaScript -->
