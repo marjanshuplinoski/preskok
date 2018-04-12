@@ -52,11 +52,14 @@ function generateFolderWithFiles($filenumbers = 0)
 {
     $folder = generateRandomString();
 
-    if (!mkdir($folder, 0777, true)) {
-        die('Failed to create folders...');
+    if (file_exists ($folder)) {
+        echo 'Folder exists: ' . $folder;
     } else {
+        mkdir($folder, 0777, true);
         echo 'Created folder: ' . $folder;
     }
+
+
     generateFiles($filenumbers, $folder);
 }
 
