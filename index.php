@@ -25,22 +25,15 @@
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2" id="checkUploadedToS3">1.b) Check If Uploaded onto S3</a></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3" id="checkDownloadedFromS3">1.c) Check If Downloaded from S3</a></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu20" id="SQLFiles">2) Get all SQL files and apply to db</a></li>
-
-    </ul>
-</nav>
-
-<nav class="navbar fixed-top navbar-light bg-light my-5">
-
-    <h2>Preskok Tasks Practical</h2>
-    <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home1">Home2</a></li>
+        <li class="nav-item"></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu_p_1" id="parserData">1) Parser for provided data, assoc array</a></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu_p_2" id="createTable">2) Create Table from data</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3" id="checkDownloadedFromS3">1.c) Check If Downloaded from S3</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu20" id="SQLFiles">2) Get all SQL files and apply to db</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu_p_3" id="createTableNames">3 Generate fake name and surname for Buyers</a></li>
 
     </ul>
 </nav>
+
+
 <div class="form-group">
     &nbsp;
 </div>
@@ -70,6 +63,9 @@
         </div>
         <div id="menu_p_2" class="tab-pane fade">
             <div id="createTableResult" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
+        </div>
+        <div id="menu_p_3" class="tab-pane fade">
+            <div id="createTableNamesResult" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
         </div>
     </div>
 

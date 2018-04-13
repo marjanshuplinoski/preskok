@@ -100,6 +100,22 @@ $(document).ready(function () {
         });
     });
 
+    $("#createTableNames").click(function () {
+        $.ajax({
+            cache: false,
+            async: true,
+            type: 'POST',
+            url: 'ajaxAction.php',
+            dataType: 'text',
+            data: {
+                action: 'createTableNames'
+            },
+            success: function (result) {
+                $("#createTableNamesResult").html(result);
+            }
+        });
+    });
+
     function uploadToS3Cloud(){
         $("#uploadToS3Cloud").click(function () {
             $.ajax({

@@ -53,7 +53,6 @@ function createTable()
             $insert .= "($t),";
         }
         $insert = rtrim(trim($insert), ',').';';
-        echo $insert;
         if (!beginTransaction($insert, null, null, 22)) {
             break;
         } else {

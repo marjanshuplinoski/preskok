@@ -47,10 +47,15 @@ if (is_ajax()) {
                 include_once 'parserData.php';
                 parserData();
                 break;
-            //
+            //Create appropriate database table and write all the rows into it, be careful there could be a lot of rows
             case "createTable":
                 include_once 'createTable.php';
                 createTable();
+                break;
+            //Generate fake Names and Surnames for all of the Buyers in separated table, one for each buyer.
+            case "createTableNames":
+                include_once 'createTableNames.php';
+                createTableNames();
                 break;
         }
     }

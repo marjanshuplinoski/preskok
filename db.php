@@ -189,7 +189,7 @@ function beginTransaction($queries, $sqlDirectory, $scannedFolder, $task = 2)
         $db->rollback();
     }
     $db->autocommit(TRUE);
-    if ($task == 22)
+    if ($task == 22 || $task == 33)
         return $success;
 }
 function querySql($db,$query,$task){
