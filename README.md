@@ -4,7 +4,7 @@
 
 
 1) Tasks 
-a) Get Folder and Files" 
+a) Get Folder and Files
     - ajax call to getFolderAndFiles.php 
 b) Check that files in directory are uploaded onto AWS S3 * into bucket with same name as a folder, if not upload them 
     - ajax call to checkUploadedToS3.php 
@@ -26,7 +26,7 @@ b) Check that files in directory are uploaded onto AWS S3 * into bucket with sam
 3) Generate fake Names and Surnames for all of the Buyers in separated table, one for each buyer.
     ajax call to createTableNames.php 
 4) For getting best selling model per client
-    - a) php getBestSellingModel.php or php getBestSellingModel.php <BuyerID>
+    - a) php getBestSellingModel.php or php getBestSellingModel.php BuyerID
     - c) php getBestSellingModelThreeMonths.php -e YYYY-MM-DD -s YYYY-MM-DD 
         where e - enddate s - specific date
         
