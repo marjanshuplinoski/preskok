@@ -10,7 +10,7 @@ include_once 'parserData.php';
 
 
 $data = parserData(21);
-$options = getopt("e:s:i:");  //e - enddate s-specific date -i BuyerID
+$options = getopt("e:s:");  //e - enddate s-specific date
 
 if (!isset($options['e'])) {
     echo 'Please use -e YYYY-MM-DD format date to check last 3 months' . PHP_EOL . 'We will add 2014-04-01 as end date' . PHP_EOL;
