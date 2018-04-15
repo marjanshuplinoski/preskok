@@ -14,8 +14,8 @@ $options = getopt("e:s:");  //e - enddate s-specific date
 
 if (!isset($options['e'])) {
     echo 'Please use -e YYYY-MM-DD format date to check last 3 months' . PHP_EOL . 'We will add 2014-04-01 as end date' . PHP_EOL;
-    echo 'Optionally you can search for specific date like 2014-02-01' . PHP_EOL;
-    $options['e'] = '2014-04-01';
+    $options['e'] = '2014-10-01';
+    echo 'Optionally you can search for specific date like '.$options['e'] . PHP_EOL;
 }
 
 
