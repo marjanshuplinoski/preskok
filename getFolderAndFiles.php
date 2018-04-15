@@ -36,7 +36,7 @@ function getFolderAndFilesPreview($Folders = null, $uploaded = null)
     } else if (isset($Folders) && !isset($uploaded)) {
         echo '<button id="uploadToS3Cloud">Click to Upload to S3 Cloud</button>';
         echo '<div class="tree well">';
-        echo '<li class="parent_li"><span title="Collapse this branch"><i class="icon-folder-open icon-minus-sign"></i>Not Found in the S3 Cloud:</span> <a href=""></a></li>';
+        echo '<li class="parent_li"><span title="Collapse this branch"><i class="icon-folder-open icon-minus-sign"></i>Not Found Files in the S3 Cloud:</span> <a href=""></a></li>';
         foreach ($Folders as $key => $folder) {
             echo '<ul><li>';
             echo '<span><i class="icon-folder-open"></i>Local Folder: </span> <a href="">' . $key . "</a>";
@@ -52,7 +52,7 @@ function getFolderAndFilesPreview($Folders = null, $uploaded = null)
     } else if (isset($Folders) && isset($uploaded)) {
         echo '<button id="downloadFromS3Cloud">Click to Download from S3 Cloud</button>';
         echo '<div class="tree well">';
-        echo '<li class="parent_li"><span title="Collapse this branch"><i class="icon-folder-open icon-minus-sign"></i>Not Found in the local folders:</span> <a href=""></a></li>';
+        echo '<li class="parent_li"><span title="Collapse this branch"><i class="icon-folder-open icon-minus-sign"></i>Not Found Files in the local folders:</span> <a href=""></a></li>';
         foreach ($Folders as $key => $folder) {
             echo '<ul><li>';
             echo '<span><i class="icon-folder-open"></i>Local Folder: </span> <a href="">' . $key . "</a>";
@@ -71,7 +71,7 @@ function getFolderAndFilesPreview($Folders = null, $uploaded = null)
 function getFolderAsVar()
 {
     foreach ((glob("*")) as $key => $folder) {
-        if (is_dir($folder) == true && preg_match('(aws-sdk-php|js|css|tmpUploadToS3Cloud|applied|SQLFiles)', $folder) === 0) {
+        if (is_dir($folder) == true && preg_match('(aws-sdk-php|js|css|tmpUploadToS3Cloud|applied|SQLFiles|log)', $folder) === 0) {
             $dirs[$key] = $folder;
         }
     }

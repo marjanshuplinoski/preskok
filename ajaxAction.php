@@ -11,6 +11,11 @@ if (is_ajax()) {
         $action = $_POST["action"];
         switch ($action) { //Switch case for value of action
             //Basic
+            //generate folders with files
+            case "generateFolderWithFiles":
+                include_once 'generate.php';
+                generateFolderWithFiles();
+                break;
             //Script should get all files in directory (file names)
             case "getFolderAndFilesPreview":
                 include_once 'getFolderAndFiles.php';

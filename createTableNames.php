@@ -32,10 +32,7 @@ function createTableNames()
     }
     $uniqueBuyerID = array_unique($uniqueBuyerIDList);
 
-    foreach ($uniqueBuyerID as $unique) ;
-
-
-    $hund_data = array_chunk($uniqueBuyerID, 100, true);
+    array_chunk($uniqueBuyerID, 100, true);
 //
     foreach ($uniqueBuyerID as $unique) {
         if (!checkIfExists($db, $unique)) {
@@ -46,7 +43,7 @@ function createTableNames()
                 break;
             }
         } else
-            echo 'Already exists in db with ID: ' . $unique . PHP_EOL;
+            echo 'Already exists in db with ID: ' . $unique . '<br>';
     }
     $db->close();
 }

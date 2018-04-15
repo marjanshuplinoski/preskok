@@ -27,8 +27,9 @@ function parserData($task = 1)
     }
     fclose($file_handle);
 
-    echo 'Get Data From ' . $url . '<br>';
+
     if ($task == 1) {
+        echo 'Get Data From ' . $url . '<br>';
         echo 'Example of associate array';
         var_dump($sortedData);
     }

@@ -24,7 +24,6 @@ function downloadFromS3Cloud()
         {
             if($file != '') {
                 getdownloadFromS3Cloud($s3Client, $bucket, $key, $file);
-
             }
         }
     }
@@ -43,6 +42,17 @@ function getdownloadFromS3Cloud($s3Client, $bucket, $keyPrefix,$file)
         'Key'    => $keyPrefix.'/'.$file,
         'SaveAs' => $keyPrefix.'/'.$file
     ));
+    echo 'Downloaded '. $keyPrefix.'/'.$file . "<br>";
+
+    if (file_exists ('./log/')) {
+    } else {
+        mkdir('log', 0777, true);
+        echo 'Created folder: ' . './log';
+    }
+    $myfile = fopen("./" . log . "/" . date("Y-m-d"). ".log", "a") or die("Unable to open file!");
+    $txt = '['.date("H:m:s").'] Downloaded '. $keyPrefix.'/'.$file  . "\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
 }
 
 ?>

@@ -20,7 +20,7 @@
 
     <h2>Preskok Tasks Basic</h2>
     <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Home1</a></li>
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1" id="getFolderAndFiles">1.a) Get Folder and Files</a></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2" id="checkUploadedToS3">1.b) Check If Uploaded onto S3</a></li>
         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3" id="checkDownloadedFromS3">1.c) Check If Downloaded from S3</a></li>
@@ -43,8 +43,11 @@
     <div class="tab-content mx-5 my-5">
         <div id="home" class="tab-pane fade active show">
             <h3>HOME</h3>
+            <button id="generateFolderWithFiles">Generate Folder with Files</button>
+            <div id="homecontent">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua.</p>
+            </div>
         </div>
         <div id="menu1" class="tab-pane fade">
             <div id="getFolderAndFilesResult" class="bg-info col-sm-12 col-md-12 col-lg-12"></div>
