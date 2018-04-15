@@ -1,4 +1,22 @@
 $(document).ready(function () {
+    $("#generateFolderWithFiles").click(function () {
+        $.ajax({
+            cache: false,
+            async: true,
+            type: 'POST',
+            url: 'ajaxAction.php',
+            dataType: 'text',
+            data: {
+                action: 'generateFolderWithFiles'
+            },
+            success: function (result) {
+                var content='Created Folder<br>';
+                var html = $("#homecontent").html();
+                $("#homecontent").html(content+html);
+            }
+        });
+    });
+
     $("#getFolderAndFiles").click(function () {
         $.ajax({
             cache: false,
