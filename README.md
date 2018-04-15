@@ -1,5 +1,8 @@
 "# Preskok" 
 
+@author Marjan Shuplinoski
+
+
 1) Tasks 
 a) Get Folder and Files" 
     - ajax call to getFolderAndFiles.php 
