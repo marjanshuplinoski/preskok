@@ -99,9 +99,9 @@ function generateTable($conn)
                     --
                     ALTER TABLE `sqlfiles`
                       MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-                    COMMIT;
                     -- ------------------------------------------------------------------";
-        mysqli_query($conn, $table);
+        mysqli_multi_query($conn, $table);
+        mysqli_commit($conn);
     }
 }
 
